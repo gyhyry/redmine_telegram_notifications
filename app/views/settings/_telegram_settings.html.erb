@@ -1,0 +1,18 @@
+<p>
+  <label>Telegram Bot Token:</label>
+  <%= text_field_tag 'settings[telegram_bot_token]', @settings['telegram_bot_token'], size: 60 %>
+</p>
+
+<p>
+  <label>Telegram Chat ID:</label>
+  <%= text_field_tag 'settings[telegram_chat_id]', @settings['telegram_chat_id'], size: 60 %>
+</p>
+
+<p>
+  <label>Проекты для отслеживания:</label>
+  <%= select_tag 'settings[projects][]',
+      options_from_collection_for_select(Project.active, :id, :name, @settings['projects']),
+      multiple: true,
+      size: 10,
+      style: 'width: 50%;' %>
+</p> 
